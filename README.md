@@ -57,7 +57,9 @@ Special technologies are needed to make these connections private and reliable. 
 ## 5. The Connectors: How Everything Talks Securely
 To ensure all these different networks can communicate privately without exposing data to the public internet, special connection technologies are used.
 • HA VPN (High-Availability VPN) This provides a secure, encrypted tunnel to connect an external network (like your office) to Google Cloud. The "High Availability" part is key—it means the connection uses redundant tunnels, so if one goes down, the other keeps the network running without interruption. While its primary role is connecting external networks, the diagram also shows it can be used to create highly available, encrypted connections between internal networks like the Services-Access VPC and a Workload VPC.
+
 • VPC Network Peering This technology creates a direct, private connection between two VPC networks within Google Cloud. It allows workloads in different spokes—for instance, between two Workload VPCs or between a Workload VPC and the Services-Access VPC—to communicate securely as if they were on the same network, without their traffic ever touching the public internet.
+
 Ultimately, these secure connectors are essential for building a hybrid cloud (where parts of an application run on-premises and parts in Google Cloud) and for isolating sensitive services from the public internet, forming the backbone of the network's security posture.
 Now that we've seen all the individual parts, let's see how they work together by following the path of data through the system.
 
@@ -73,5 +75,7 @@ This orchestrated flow of data highlights the power and elegance of the hub-and-
 
 ## 7. Conclusion: Your Networking Blueprint
 In essence, the hub-and-spoke model organizes a complex network by using a central Routing VPC as the main hub to manage traffic for all the connected spoke VPCs. This design delivers two crucial advantages that are essential for any modern application.
+
 • Security: By centralizing traffic control and using private connections, it isolates workloads and reduces the attack surface.
+
 • Scalability: New "spokes" can be added easily without having to redesign the entire network, making it simple to grow.
